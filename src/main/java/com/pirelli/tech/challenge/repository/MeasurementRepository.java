@@ -19,8 +19,7 @@ public interface MeasurementRepository extends CrudRepository<Measurement, Long>
 	@Query("select distinct m.vehicleModel from measurement m")
 	public List<String> getAllCars();
 	
-	//	@Query("select m from measurement m where m.vehicleModel = :vehicleModel orderby m.timestamp asc")
-	@Query("select m from measurement m where m.vehicleModel = :vehicleModel")
+	@Query("select m from measurement m where m.vehicleModel = :vehicleModel order by m.timestamp asc")
 	public List<Measurement> getAllMeasurementsSingleCar(String vehicleModel);
 
 }

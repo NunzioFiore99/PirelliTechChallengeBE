@@ -42,5 +42,10 @@ public class MeasurementController {
 	    public ResponseEntity<List<MeasurementDTO>> getAllMeasurementsSingleCar(@PathVariable(name = "vehicleModel") String vm){
 	    	return ResponseEntity.ok(measurementService.getAllMeasurementsSingleCar(vm));
 	    }
+	    
+	    @PostMapping("/getAllMeasurementsMultipleCars")
+	    public ResponseEntity<List<MeasurementDTO>> getAllMeasurementsMultipleCars(@RequestBody String carsList){
+	    	return ResponseEntity.ok(measurementService.getAllMeasurementsMultipleCars(carsList));
+	    }
 
 }

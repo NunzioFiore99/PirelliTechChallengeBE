@@ -1,6 +1,7 @@
 package com.pirelli.tech.challenge.service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,22 +32,39 @@ public class MeasurementService {
     }
     
     public List<String> getAllCars() {
-        List<String> cars = measurementRepository.getAllCars();
-        return cars;
+        List<String> carsList = measurementRepository.getAllCars();
+        return carsList;
     }
     
     public List<MeasurementDTO> getAllMeasurementsSingleCar(String vehicleModel){
-    	List<Measurement> measurementsSingleCar = measurementRepository.getAllMeasurementsSingleCar(vehicleModel);
-    	List<MeasurementDTO> measurementsSingleCarDTO = new ArrayList<MeasurementDTO>();
+    	List<Measurement> measurementsSingleCarList = measurementRepository.getAllMeasurementsSingleCar(vehicleModel);
+    	List<MeasurementDTO> measurementsSingleCarDTOList = new ArrayList<MeasurementDTO>();
     	
-    	for(Measurement m : measurementsSingleCar) {
+    	for(Measurement m : measurementsSingleCarList) {
     		// this if is used for data cleaning process to fix inaccurate (negative) pressure and speed values
     		if(Double.valueOf(m.getPressure()) >= 0 && Double.valueOf(m.getLinearSpeed()) >=0) {
-    			measurementsSingleCarDTO.add(measurementMapper.toDto(m));
+    			measurementsSingleCarDTOList.add(measurementMapper.toDto(m));
     		}
     	}
     	
-    	return measurementsSingleCarDTO;
+    	return measurementsSingleCarDTOList;
+    }
+    
+    public List<MeasurementDTO> getAllMeasurementsMultipleCars(String carsListString){
+    	List<String> carsList = new ArrayList<String>(Arrays.asList(carsListString.split(","))); //Cars selected
+    	List<MeasurementDTO> measurementsMultipleCarsDTOList = new ArrayList<MeasurementDTO>(); //All measurements of all cars DTO
+    	
+    	for(String car : carsList) {
+    		List<Measurement> measurementsSingleCarList = measurementRepository.getAllMeasurementsSingleCar(car); //All measurements single car
+    		for(Measurement m : measurementsSingleCarList) {
+        		// this if is used for data cleaning process to fix inaccurate (negative) pressure and speed values
+        		if(Double.valueOf(m.getPressure()) >= 0 && Double.valueOf(m.getLinearSpeed()) >=0) {
+        			measurementsMultipleCarsDTOList.add(measurementMapper.toDto(m));
+        		}
+        	}
+    	}
+    	
+    	return measurementsMultipleCarsDTOList;
     }
 
 }
