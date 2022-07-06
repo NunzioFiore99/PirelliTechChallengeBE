@@ -7,6 +7,7 @@
   - Database: MySQL DB
   - Client database: MySQL Workbench or DBeaver
   - NodeJS and Angular installed
+  - CORS Plug-in Browser installed
   
 - Code:
   - Backend: https://github.com/NunzioFiore99/PirelliTechChallengeBE.git
