@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "015c8df2-4588-4dda-99c1-c38197e6ebe5",
+		"name": "PIRELLI TECH CHALLENGE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Store measurement data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"timestamp\": \"2022-07-05 19:40:45\",\r\n    \"pressure\": \"2.7\",\r\n    \"tyrePosition\": \"REAR_LEFT\",\r\n    \"temperature\": \"29.5\",\r\n    \"angularVelocity\": \"80.50\",\r\n    \"linearSpeed\": \"100.6\",\r\n    \"vehicleModel\": \"Mercedes Classe A\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/pirelli",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pirelli"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Measurement",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/pirelli/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pirelli",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Cars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/pirelli/getAllCars",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pirelli",
+						"getAllCars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Measurements Single Car",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/pirelli/getAllMeasurementsSingleCar/Alfa Romeo Giulia GTA",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pirelli",
+						"getAllMeasurementsSingleCar",
+						"Alfa Romeo Giulia GTA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Measurements Multiple Cars",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Porsche 911 GT3,Alfa Romeo Giulia GTA",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/pirelli/getAllMeasurementsMultipleCars",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"pirelli",
+						"getAllMeasurementsMultipleCars"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
