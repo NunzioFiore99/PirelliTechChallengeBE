@@ -6,6 +6,7 @@
   - Client HTTP: Postman
   - Database: MySQL DB
   - Client database: MySQL Workbench or DBeaver
+  - NodeJS and Angular installed
   
 - Code:
   - Backend: https://github.com/NunzioFiore99/PirelliTechChallengeBE.git
@@ -13,7 +14,7 @@
 
 - Guide:
   - Database:
-    - Create a server DB connection using a MySQL DB
+    - Create a server Database connection using a MySQL DB. The name of connection will be measurementsdb (The connection string must be jdbc:mysql://localhost:3306/measurementsdb)
   - Backend:
     - Open Postman and import a collection of request (Pirelli_Tech_Challenge.postman_collection.json)
     - Open Eclipse (Check if Spring framework is installed) or STS (Spring Tool Suite) and import Maven Project (PirelliTechChallengeBE)
